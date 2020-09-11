@@ -5,7 +5,8 @@ conda install -c bioconda metapi
 #+END_SRC
 
 ** Prepare CAMI2 rhizosphere datasets
-Goto https://data.cami-challenge.org/participate, and download *2nd CAMI Challenge Rhizosphere challenge*
+Goto https://data.cami-challenge.org/participate, and download *2nd CAMI Challenge Rhizosphere challenge*.
+
 Prepare data *samples.tsv* like bellow:
 | id           | fq1                                        | fq2 | fq_long                                     |
 | rhimgCAMI2_0 | rhimgCAMI2_short_read_sample_0_reads.fq.gz |     | rhimgCAMI2_long_read_nano_sample_0_reads.fq |
@@ -27,11 +28,18 @@ cd rhimgCAMI2
 metapi init -d . -s samples.tsv -b trimming
 
 # change config.yaml
+# params::assembly::opera_ms::do -> true
+#+END_SRC
 
 *** metapi run
 #+BEGIN_SRC bash
+# run on local
 metapi mag_wf assembly_opera_ms_all --run
+
+# run on cluster
+metapi mag_wf assembly_opera_ms_all --qsub --jobs 100
 #+END_SRC
 
 
 ** Upload assembly data
+see https://www.microbiome-cosi.org/cami/submitting-results-to-cami.
