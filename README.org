@@ -43,3 +43,5 @@ metapi mag_wf assembly_opera_ms_all --qsub --jobs 100
 
 ** Upload assembly data
 see https://www.microbiome-cosi.org/cami/submitting-results-to-cami.
+
+We use [[https://github.com/ohmeta/camipi][camipi]] to upload data, have try :)
